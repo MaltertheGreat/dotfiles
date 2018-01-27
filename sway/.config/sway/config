@@ -20,6 +20,7 @@ set $menu ~/.fzf-menu/fzf-menu
 for_window [title="fzf-menu"] floating enable
 
 gaps inner 10
+gaps edge_gaps off
 smart_gaps on
 smart_borders on
 default_border pixel 2
