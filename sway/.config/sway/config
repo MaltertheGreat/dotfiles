@@ -24,6 +24,8 @@ gaps edge_gaps off
 smart_gaps on
 smart_borders on
 default_border pixel 2
+default_floating_border none
+hide_edge_borders both
 
 ### Output configuration
 #
@@ -193,7 +195,7 @@ mode "resize" {
     # return to default mode
     bindsym Return mode "default"
     bindsym Escape mode "default"
-    bindsym $mod+r mode "default
+    bindsym $mod+r mode "default"
 }
 bindsym $mod+r mode "resize"
 
