@@ -1,0 +1,8 @@
+#! /bin/sh
+
+IFS=':'
+
+for p in $PATH; do
+ls "$p"
+done \
+| fzf > ~/.fzf-menu/fzf-menu-pipe

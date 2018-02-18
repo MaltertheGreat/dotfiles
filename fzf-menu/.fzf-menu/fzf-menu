@@ -1,0 +1,4 @@
+#! /bin/sh
+
+termite -e ~/.fzf-menu/fzf-menu-chooser &
+exec `cat ~/.fzf-menu/fzf-menu-pipe`
