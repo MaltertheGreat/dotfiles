@@ -22,7 +22,6 @@ for_window [title="fzf-menu"] floating enable
 gaps inner 10
 gaps edge_gaps off
 smart_gaps on
-smart_borders on
 default_border pixel 2
 default_floating_border none
 hide_edge_borders both
@@ -82,6 +81,10 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
     bindsym XF86AudioRaiseVolume exec amixer set Master 1%+
     bindsym XF86AudioLowerVolume exec amixer set Master 1%-
     bindsym XF86AudioMute exec amixer set Master toggle
+	bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+	bindsym XF86AudioStop exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+	bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+	bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 #
 # Moving around:
 #

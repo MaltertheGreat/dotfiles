@@ -27,7 +27,6 @@ set splitright  " Open new windows right of the current window.
 set cursorline          " Find the current line quickly.
 set wrapscan            " Searches wrap around end-of-file.
 set report=0            " Always report changed lines.
-set synmaxcol=200       " Only highlight the first 200 columns.
 
 " Put all temporary files under the same directory.
 set backup
@@ -53,19 +52,25 @@ syntax on
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/syntastic'
 Plug 'valloric/youcompleteme'
+Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
+let g:ycm_server_python_interpreter = '/bin/python2'
 
 " Power line glyphs
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
+
+let g:airline_theme='base16_default'
 
 " Syntastic
 set statusline+=%#warningmsg#
