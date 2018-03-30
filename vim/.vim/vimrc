@@ -8,6 +8,9 @@ set softtabstop=0 noexpandtab
 set shiftwidth=4
 set smartindent
 
+" Stop indenting public/protected/private
+set cino=g0
+
 set backspace=indent,eol,start  " Make backspace work as you would expect.
 set hidden                                              " Switch between buffers without having to save first.
 set laststatus=2                                " Always show statusline.
@@ -42,8 +45,14 @@ set viminfo='100,n$HOME/.vim/files/info/viminfo
 " Tab expansion on commands
 set wildmenu
 set wildmode=full
-
-set number      " Show line numbers
+"
+" Show line numbers
+set number relativenumber
+augroup numbertoggle
+	autocmd!
+	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+augroup END
 set mouse=a     " Enable mouse controll
 
 syntax on
@@ -59,7 +68,6 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'chriskempson/base16-vim'
 Plug 'scrooloose/syntastic'
 Plug 'valloric/youcompleteme'
-Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
@@ -84,5 +92,9 @@ let g:syntastic_check_on_wq = 0
 
 " sudo write
 cmap w!! w !sudo tee > /dev/null %
+
+" Buffer switching
+nnoremap <C-l> :bn<CR>
+nnoremap <C-h> :bp<CR>
 
 autocmd BufRead *.sql set filetype=mysql
