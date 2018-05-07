@@ -66,11 +66,15 @@ Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
 Plug 'chriskempson/base16-vim'
-Plug 'scrooloose/syntastic'
+Plug 'majutsushi/tagbar'
 Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
+
+"base-16 theme
+colorscheme base16-default-dark
+set termguicolors
 
 let g:ycm_server_python_interpreter = '/bin/python2'
 
@@ -79,16 +83,6 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 let g:airline_theme='base16_default'
-
-" Syntastic
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
 
 " sudo write
 cmap w!! w !sudo tee > /dev/null %
