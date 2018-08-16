@@ -1,35 +1,36 @@
 set nocompatible
 
-filetype plugin indent on       " Load plugins according to detected filetype.
-syntax on                                       " Enable syntax highlighting.
-
 set tabstop=4
 set softtabstop=0 noexpandtab
 set shiftwidth=4
 set smartindent
 
+" Set global replacement as the default
+set gdefault
+
+" Better wrapping
+set breakindent
+set showbreak=\\\\\\\
+" Smarter j and k navigation
+nnoremap <expr> j v:count ? 'j' : 'gj'
+nnoremap <expr> k v:count ? 'k' : 'gk'
+
 " Stop indenting public/protected/private
 set cino=g0
+" Make backspace work as you would expect.
+set backspace=indent,eol,start
+" Switch between buffers without having to save first.
+set hidden
 
-set backspace=indent,eol,start  " Make backspace work as you would expect.
-set hidden                                              " Switch between buffers without having to save first.
-set laststatus=2                                " Always show statusline.
-set display=lastline                    " Show as much as possible of the last line.
-
-set showcmd     " Show already typed keys when more are expected.
-
-set incsearch   " Highlight while searching with / or ?.
-set hlsearch    " Keep matches highlighted.
-
-set ttyfast             " Faster redrawing.
-set lazyredraw  " Only redraw when necessary.
-
-set splitbelow  " Open new windows below the current window.
-set splitright  " Open new windows right of the current window.
-
-set cursorline          " Find the current line quickly.
-set wrapscan            " Searches wrap around end-of-file.
-set report=0            " Always report changed lines.
+" Show already typed keys when more are expected.
+set showcmd
+" Find the current line quickly.
+set cursorline
+" Searches wrap around end-of-file.
+set wrapscan
+set ignorecase
+" Case aware completions
+set infercase
 
 " Put all temporary files under the same directory.
 set backup
@@ -42,10 +43,22 @@ set undofile
 set undodir=$HOME/.vim/files/undo/
 set viminfo='100,n$HOME/.vim/files/info/viminfo
 
+" Use system clipboard as default clipboard
+set clipboard=unnamed
+
 " Tab expansion on commands
 set wildmenu
 set wildmode=full
-"
+
+set mouse=a
+
+" Sudo write
+cmap w!! w !sudo tee > /dev/null %
+
+" Buffer switching
+nnoremap <C-l> :bn<CR>
+nnoremap <C-h> :bp<CR>
+
 " Show line numbers
 set number relativenumber
 augroup numbertoggle
@@ -53,9 +66,10 @@ augroup numbertoggle
 	autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
 	autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
 augroup END
-set mouse=a     " Enable mouse controll
+" Enable mouse controll
 
-syntax on
+autocmd BufRead *.sql set filetype=mysql
+
 
 " vim-plug plugin manager
 call plug#begin('~/.vim/plugged')
@@ -65,15 +79,15 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'ryanoasis/vim-devicons'
-Plug 'chriskempson/base16-vim'
-Plug 'majutsushi/tagbar'
+Plug 'morhetz/gruvbox'
 Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-fugitive'
 
 call plug#end()
 
-"base-16 theme
-colorscheme base16-default-dark
+set background=dark
+let g:gruvbox_italic=1
+colorscheme gruvbox
 set termguicolors
 
 let g:ycm_server_python_interpreter = '/bin/python2'
@@ -82,13 +96,4 @@ let g:ycm_server_python_interpreter = '/bin/python2'
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
-let g:airline_theme='base16_default'
-
-" sudo write
-cmap w!! w !sudo tee > /dev/null %
-
-" Buffer switching
-nnoremap <C-l> :bn<CR>
-nnoremap <C-h> :bp<CR>
-
-autocmd BufRead *.sql set filetype=mysql
+let g:airline_theme='gruvbox'
