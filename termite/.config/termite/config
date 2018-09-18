@@ -2,7 +2,7 @@
 allow_bold = true
 #audible_bell = false
 #clickable_url = true
-#dynamic_title = true
+dynamic_title = false
 font = InconsolataLGC Nerd Font 11
 #fullscreen = true
 #geometry = 640x480
@@ -38,6 +38,7 @@ scrollback_lines = 10000
 # "off", "left" or "right"
 #scrollbar = off
 [colors]
+#Gruvbox theme
 foreground = #ebdbb2
 background = #282828
 color0 = #282828

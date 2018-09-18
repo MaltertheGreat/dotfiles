@@ -17,8 +17,9 @@ set $right l
 set $term termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
-set $menu ~/.fzf-menu/fzf-menu | xargs swaymsg exec
-for_window [title="fzf-menu"] floating enable
+#set $menu ~/.fzf-menu/fzf-menu | xargs swaymsg exec
+set $menu termite --geometry=350x500 -e ~/Programming/Launter/build/Launter
+for_window [title="Launter"] floating enable
 
 #gaps outer 10
 gaps edge_gaps off
@@ -227,13 +228,13 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-	font Fantasque Sans Nerd Font 9
+	font Fantasque Sans Nerd Font 11
     position top
     colors {
-        statusline #ebdbb2
-        background #458588
-		focused_workspace    #689d6a #689d6a #282828
-        inactive_workspace   #689d6a #83a598 #282828
+        statusline #282828
+        background #a89984
+		focused_workspace    #a89984 #d65d0e #282828
+        inactive_workspace   #a89984 #fe8019 #282828
     }
 }
 
