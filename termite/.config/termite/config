@@ -39,8 +39,8 @@ scrollback_lines = 10000
 #scrollbar = off
 [colors]
 #Gruvbox theme
-foreground = #ebdbb2
 background = #282828
+foreground = #ebdbb2
 color0 = #282828
 color1 = #cc241d
 color2 = #98971a
@@ -57,3 +57,15 @@ color12 = #83a598
 color13 = #d3869b
 color14 = #8ec07c
 color15 = #ebdbb2
+
+#oranges
+color16 = #fe8019
+color17 = #d65d0e
+
+#backgrounds
+color18 = #3c3836
+color19 = #504945
+
+#foregrounds
+color20 = #bdae93
+color21 = #fbf1c7

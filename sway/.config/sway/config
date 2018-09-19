@@ -18,7 +18,7 @@ set $term termite
 # Your preferred application launcher
 # Note: it's recommended that you pass the final command to sway
 #set $menu ~/.fzf-menu/fzf-menu | xargs swaymsg exec
-set $menu termite --geometry=350x500 -e ~/Programming/Launter/build/Launter
+set $menu termite --geometry=350x500 -e ~/Programming/Launter/release/Launter
 for_window [title="Launter"] floating enable
 
 #gaps outer 10
@@ -69,7 +69,7 @@ output DVI-I-1 position 1920,0 transform 90
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
 input * {
-	xkb_numlock enabled
+    xkb_numlock enabled
 }
 
 ### Key bindings
