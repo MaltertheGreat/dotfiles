@@ -21,8 +21,8 @@ set $term termite
 set $menu termite --geometry=350x500 -e ~/Programming/Launter/release/Launter
 for_window [title="Launter"] floating enable
 
-#gaps outer 10
-gaps edge_gaps off
+gaps outer 10
+#gaps edge_gaps off
 smart_gaps on
 default_border pixel 2
 default_floating_border none
@@ -32,8 +32,8 @@ hide_edge_borders both
 #
 # Default wallpaper (more resolutions are available in __DATADIR__/backgrounds/sway/)
 output * bg ~/ArchWallpaper1920x1080.png fill
-output DP-1 position 0,0
-output DVI-I-1 position 1920,0 transform 90
+output DP-1 position 1024,0
+output DVI-I-1 position 0,0 transform 90
 #
 # Example configuration:
 #
@@ -102,10 +102,10 @@ input * {
     bindsym XF86AudioRaiseVolume exec amixer set Master 1%+
     bindsym XF86AudioLowerVolume exec amixer set Master 1%-
     bindsym XF86AudioMute exec amixer set Master toggle
-	bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
-	bindsym XF86AudioStop exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
-	bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
-	bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotify /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
+	bindsym XF86AudioPlay exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.PlayPause
+	bindsym XF86AudioStop exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Stop
+	bindsym XF86AudioNext exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Next
+	bindsym XF86AudioPrev exec dbus-send --print-reply --dest=org.mpris.MediaPlayer2.spotifyd /org/mpris/MediaPlayer2 org.mpris.MediaPlayer2.Player.Previous
 #
 # Moving around:
 #
@@ -228,6 +228,7 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
+	status_command ~/trivial_bar.sh
 	font Fantasque Sans Nerd Font 11
     position top
     colors {
