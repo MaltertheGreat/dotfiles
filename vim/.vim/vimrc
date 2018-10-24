@@ -5,9 +5,6 @@ set softtabstop=0 noexpandtab
 set shiftwidth=4
 set smartindent
 
-" Set global replacement as the default
-set gdefault
-
 " Better wrapping
 set breakindent
 set showbreak=\\\\\\\
@@ -83,6 +80,8 @@ Plug 'morhetz/gruvbox'
 Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-fugitive'
 Plug 'easymotion/vim-easymotion'
+Plug 'JuliaEditorSupport/julia-vim'
+Plug 'vim-latex/vim-latex'
 
 call plug#end()
 
@@ -98,3 +97,8 @@ let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 
 let g:airline_theme='gruvbox'
+
+let g:tex_flavor='latex'
+let g:Tex_DefaultTargetFormat="pdf"
+let g:Tex_ViewRule_pdf='okular'
+let g:Tex_MultipleCompileFormats="dvi,pdf"
