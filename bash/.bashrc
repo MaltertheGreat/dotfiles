@@ -15,6 +15,8 @@ if [ $(tty) = "/dev/tty1" ]; then
 	export QT_STYLE_OVERRIDE=Breeze
 	export SWAY_CURSOR_THEME=Breeze
 	export ALSA_CARD=PCH
+	export EDITOR=/bin/vim
+	export VISUAL=/bin/vim
 
 	sway
 fi
